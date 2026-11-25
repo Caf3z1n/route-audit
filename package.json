@@ -1,17 +1,18 @@
 {
-  "name": "@caf3z1n/astro-route-audit",
-  "version": "0.2.0",
+  "name": "route-audit",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Check historical site routes against an Astro build or HTTP preview.",
+  "description": "Check that your published URLs still work before you deploy.",
   "engines": {
     "node": ">=22.12"
   },
   "bin": {
-    "astro-route-audit": "bin/cli.js"
+    "route-audit": "bin/cli.js"
   },
   "exports": {
-    ".": "./src/astro.js",
+    ".": "./src/index.js",
+    "./astro": "./src/astro.js",
     "./audit": "./src/audit.js"
   },
   "files": [

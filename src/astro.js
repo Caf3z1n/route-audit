@@ -8,7 +8,7 @@ export default function routeAudit({
 } = {}) {
   let root, base;
   return {
-    name: 'astro-route-audit',
+    name: 'route-audit/astro',
     hooks: {
       'astro:config:done': ({ config: astro }) => {
         root = fileURLToPath(astro.root);

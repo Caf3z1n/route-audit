@@ -1,6 +1,8 @@
-# Astro Route Audit
+# Route Audit
 
-Check that previously published URLs still work after a documentation change. Run against a static Astro build or an HTTP preview. The CLI reads a historical sitemap, explicit route expectations, or both. Requires Node.js 22.12 or later.
+Check that your published URLs still work before you deploy.
+
+Run the CLI against a static build directory or an HTTP preview. For Astro and Starlight, use the build integration. The CLI reads a historical sitemap, explicit route expectations, or both. Requires Node.js 22.12 or later.
 
 [Venus Protocol before-and-after case study](cases/venus-429/README.md)
 
@@ -14,7 +16,7 @@ npm test
 node bin/cli.js --config examples/bioconductor.json --preview https://bioconductor.org --json audit.json
 ```
 
-For another project, install the local tarball as a development dependency and run `npx astro-route-audit`. The package is private during evaluation.
+For another project, install the local tarball with `npm install -D ./route-audit-0.3.0.tgz` and run `npx route-audit`. The package is private during evaluation.
 
 ## Define the URL contract
 
@@ -35,8 +37,8 @@ Save as `route-audit.json`. Paths include the public base prefix. Explicit paths
 ## Audit a build or a preview
 
 ```sh
-npx astro-route-audit --dist dist --base /docs
-npx astro-route-audit --preview https://preview.example.org --json audit.json
+npx route-audit --dist dist --base /docs
+npx route-audit --preview https://preview.example.org --json audit.json
 ```
 
 The static check looks for the file, an HTML page, or a directory index. It follows immediate HTML meta refresh redirects. An HTTP preview is required to verify hosting rules and exact HTTP status codes. Raw static checks do not interpret hosting-provider configuration.
@@ -45,11 +47,11 @@ The HTTP check uses anonymous GET requests. It inspects the first response and f
 
 Exit codes are 0 for a passing audit, 1 for a failed expectation, and 2 for invalid configuration, operational errors or inconclusive results. With `--report-only`, failures alone yield exit code 0. JSON includes the route contract, observed redirect chain, outcome and UTC timestamp.
 
-## Astro integration
+## Route Audit for Astro
 
 ```js
 import { defineConfig } from 'astro/config';
-import routeAudit from '@caf3z1n/astro-route-audit';
+import routeAudit from 'route-audit/astro';
 
 export default defineConfig({
   integrations: [routeAudit({ config: 'route-audit.json', reportOnly: true })],

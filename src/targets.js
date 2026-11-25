@@ -79,7 +79,7 @@ export function httpTarget(site, preview) {
       method: 'GET',
       redirect: 'manual',
       signal: AbortSignal.timeout(12000),
-      headers: { 'user-agent': 'astro-route-audit/0.1 (public route check)' },
+      headers: { 'user-agent': 'route-audit (public route check)' },
     });
     const location = response.headers.get('location');
     await response.body?.cancel();
