@@ -2,6 +2,8 @@
 
 Check that previously published URLs still work after a documentation change. Run against a static Astro build or an HTTP preview. The CLI reads a historical sitemap, explicit route expectations, or both. Requires Node.js 22.12 or later.
 
+[Venus Protocol before-and-after case study](cases/venus-429/README.md)
+
 ## Try it locally
 
 ```sh

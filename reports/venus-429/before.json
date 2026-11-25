@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-11-25T23:39:58.646Z",
+  "mode": "http",
+  "target": "http://127.0.0.1:58828",
+  "site": "https://docs-v4.venus.io",
+  "summary": {
+    "total": 6,
+    "pass": 0,
+    "fail": 6,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "path": "/technical-reference/reference-technical-articles/multichain-governance",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/omnichain-governance",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/multichain-governance",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "path": "/whats-new/isolated-pools",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/guides/isolated-pools-deprecation",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/whats-new/isolated-pools",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "path": "/whats-new/emode",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/whats-new/e-mode",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/whats-new/emode",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "path": "/technical-reference/reference-technical-articles/technical-doc-xvs-bridge",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/xvs-bridge",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/technical-doc-xvs-bridge",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "path": "/deployed-contracts/xvs-multichain",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/deployed-contracts/xvs-omnichain",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/deployed-contracts/xvs-multichain",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "path": "/technical-reference/reference-oracle/boundvalidator",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/technical-reference/reference-oracle/bound-validator",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-oracle/boundvalidator",
+          "status": 404
+        }
+      ]
+    }
+  ],
+  "replay": {
+    "commit": "39e5696577d089a207c671997acf996969ff67f5",
+    "configSha256": "8246bfaa4b0b2298fb92ee522f3c0b45e97e22c252c5bf8710980e382e67fc26",
+    "environment": "local HTTP replay of built HTML and pinned Vercel redirects",
+    "cliExitCode": 1
+  }
+}

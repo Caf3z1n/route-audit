@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-11-25T23:39:58.407Z",
+  "mode": "http",
+  "target": "http://127.0.0.1:58828",
+  "site": "https://docs-v4.venus.io",
+  "summary": {
+    "total": 6,
+    "pass": 6,
+    "fail": 0,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "path": "/technical-reference/reference-technical-articles/omnichain-governance",
+      "expected": 200,
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/omnichain-governance",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/guides/isolated-pools-deprecation",
+      "expected": 200,
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/guides/isolated-pools-deprecation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/whats-new/e-mode",
+      "expected": 200,
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/whats-new/e-mode",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/technical-reference/reference-technical-articles/xvs-bridge",
+      "expected": 200,
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/xvs-bridge",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/deployed-contracts/xvs-omnichain",
+      "expected": 200,
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/deployed-contracts/xvs-omnichain",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/technical-reference/reference-oracle/bound-validator",
+      "expected": 200,
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-oracle/bound-validator",
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "replay": {
+    "commit": "39e5696577d089a207c671997acf996969ff67f5",
+    "configSha256": "8246bfaa4b0b2298fb92ee522f3c0b45e97e22c252c5bf8710980e382e67fc26",
+    "environment": "local HTTP replay of built HTML and pinned Vercel redirects",
+    "cliExitCode": 0
+  }
+}

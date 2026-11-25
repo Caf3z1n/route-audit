@@ -1,0 +1,35 @@
+{
+  "site": "https://docs-v4.venus.io",
+  "routes": [
+    {
+      "path": "/technical-reference/reference-technical-articles/multichain-governance",
+      "status": 308,
+      "location": "/technical-reference/reference-technical-articles/omnichain-governance"
+    },
+    {
+      "path": "/whats-new/isolated-pools",
+      "status": 308,
+      "location": "/guides/isolated-pools-deprecation"
+    },
+    {
+      "path": "/whats-new/emode",
+      "status": 308,
+      "location": "/whats-new/e-mode"
+    },
+    {
+      "path": "/technical-reference/reference-technical-articles/technical-doc-xvs-bridge",
+      "status": 308,
+      "location": "/technical-reference/reference-technical-articles/xvs-bridge"
+    },
+    {
+      "path": "/deployed-contracts/xvs-multichain",
+      "status": 308,
+      "location": "/deployed-contracts/xvs-omnichain"
+    },
+    {
+      "path": "/technical-reference/reference-oracle/boundvalidator",
+      "status": 308,
+      "location": "/technical-reference/reference-oracle/bound-validator"
+    }
+  ]
+}

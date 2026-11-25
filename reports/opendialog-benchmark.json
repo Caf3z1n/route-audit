@@ -1,0 +1,19 @@
+{
+  "routes": 204,
+  "version": "v22.12.0",
+  "baselineMs": [
+    875,
+    877,
+    878,
+    863
+  ],
+  "currentMs": [
+    207,
+    204,
+    199,
+    204
+  ],
+  "method": "Four warm runs per version in alternating order, same pinned OpenDialog build and route config, equal result arrays asserted on every run.",
+  "baselineRevision": "v0.1.0",
+  "currentRevision": "0.2.0"
+}

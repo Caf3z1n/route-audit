@@ -1,0 +1,122 @@
+{
+  "timestamp": "2026-11-25T23:40:00.749Z",
+  "mode": "http",
+  "target": "https://docs-v4.venus.io",
+  "site": "https://docs-v4.venus.io",
+  "summary": {
+    "total": 6,
+    "pass": 6,
+    "fail": 0,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "path": "/technical-reference/reference-technical-articles/multichain-governance",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/omnichain-governance",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/multichain-governance",
+          "status": 308,
+          "location": "/technical-reference/reference-technical-articles/omnichain-governance"
+        },
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/omnichain-governance",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/whats-new/isolated-pools",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/guides/isolated-pools-deprecation",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/whats-new/isolated-pools",
+          "status": 308,
+          "location": "/guides/isolated-pools-deprecation"
+        },
+        {
+          "url": "https://docs-v4.venus.io/guides/isolated-pools-deprecation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/whats-new/emode",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/whats-new/e-mode",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/whats-new/emode",
+          "status": 308,
+          "location": "/whats-new/e-mode"
+        },
+        {
+          "url": "https://docs-v4.venus.io/whats-new/e-mode",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/technical-reference/reference-technical-articles/technical-doc-xvs-bridge",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/xvs-bridge",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/technical-doc-xvs-bridge",
+          "status": 308,
+          "location": "/technical-reference/reference-technical-articles/xvs-bridge"
+        },
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-technical-articles/xvs-bridge",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/deployed-contracts/xvs-multichain",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/deployed-contracts/xvs-omnichain",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/deployed-contracts/xvs-multichain",
+          "status": 308,
+          "location": "/deployed-contracts/xvs-omnichain"
+        },
+        {
+          "url": "https://docs-v4.venus.io/deployed-contracts/xvs-omnichain",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/technical-reference/reference-oracle/boundvalidator",
+      "expected": 308,
+      "expectedLocation": "https://docs-v4.venus.io/technical-reference/reference-oracle/bound-validator",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-oracle/boundvalidator",
+          "status": 308,
+          "location": "/technical-reference/reference-oracle/bound-validator"
+        },
+        {
+          "url": "https://docs-v4.venus.io/technical-reference/reference-oracle/bound-validator",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

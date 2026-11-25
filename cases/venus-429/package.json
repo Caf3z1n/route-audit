@@ -1,0 +1,10 @@
+{
+  "name": "venus-pr-429-replay",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/routing-utils": "6.6.1",
+    "serve-handler": "6.1.6",
+    "venus-pr-429-replay": "file:"
+  }
+}
