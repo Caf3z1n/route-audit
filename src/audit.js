@@ -38,8 +38,8 @@ async function check(rule, {site, preview, read}) {
   }
 }
 export async function audit({config,dist,preview,base='/'}) {
-  if (Boolean(dist) === Boolean(preview)) throw new Error('Selecione exatamente um alvo: dist ou preview.');
-  if (!base.startsWith('/') || base.startsWith('//') || /[?#\\]/.test(base)) throw new Error('Base estática inválida.');
+  if (Boolean(dist) === Boolean(preview)) throw new Error('Choose exactly one audit target (--dist or --preview).');
+  if (!base.startsWith('/') || base.startsWith('//') || /[?#\\]/.test(base)) throw new Error('Invalid static base path.');
   const {site,routes} = await loadConfig(config);
   if (preview) preview = origin(preview);
   const read = preview ? httpTarget(site,preview) : await staticTarget(dist,base);
@@ -56,6 +56,6 @@ export function exitCode(report,reportOnly=false) {
 }
 export function format(report) {
   const s = report.summary;
-  return [report.mode + ': ' + s.pass + '/' + s.total + ' OK, ' + s.fail + ' divergente(s), ' + s.unknown + ' inconclusiva(s).',
-    ...report.results.filter(r=>r.outcome !== 'pass').map(r=>[r.outcome,r.path,'esperado='+r.expected,'observado='+r.trace.map(h=>h.status).join('->'),r.reason,r.detail].filter(Boolean).join('  '))].join('\n');
+  return [report.mode + ': ' + s.pass + '/' + s.total + ' OK, ' + s.fail + ' failed, ' + s.unknown + ' inconclusive.',
+    ...report.results.filter(r=>r.outcome !== 'pass').map(r=>[r.outcome,r.path,'expected='+r.expected,'observed='+r.trace.map(h=>h.status).join('->'),r.reason,r.detail].filter(Boolean).join('  '))].join('\n');
 }

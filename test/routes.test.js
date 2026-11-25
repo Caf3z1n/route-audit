@@ -59,15 +59,15 @@ test('Astro hook resolves project-relative config and enforces check/report-only
     const hooks=integrate({reportOnly}).hooks;
     hooks['astro:config:done']({config:{root:pathToFileURL(dir+'/'),base:'/',output:'static'}});
     const run=hooks['astro:build:done']({dir:pathToFileURL(dir+'/dist/'),logger:{info(){}}});
-    if(reportOnly) await run; else await assert.rejects(run,/Auditoria/);
+    if(reportOnly) await run; else await assert.rejects(run,/Route audit/);
   }
 });
 test('rejects an empty or foreign baseline and ambiguous targets', async t=>{
   const {dir,put}=await workspace(t);
   const config=await put('r.json',{site:'https://docs.test',sitemaps:['s.xml']});
   await put('s.xml','<urlset><url><loc>https://other.test/a</loc></url></urlset>');
-  await assert.rejects(audit({config,dist:dir}),/Origem inesperada/);
+  await assert.rejects(audit({config,dist:dir}),/Unexpected sitemap origin/);
   await put('s.xml','<urlset/>');
-  await assert.rejects(audit({config,dist:dir}),/vazio/);
-  await assert.rejects(audit({config,dist:dir,preview:'http://localhost'}),/exatamente um/);
+  await assert.rejects(audit({config,dist:dir}),/empty sitemap/);
+  await assert.rejects(audit({config,dist:dir,preview:'http://localhost'}),/exactly one/);
 });

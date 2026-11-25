@@ -1,48 +1,47 @@
 # Astro Route Audit
 
-Compara URLs históricas com um build estático do Astro/Starlight ou com as respostas HTTP de uma prévia. Requer Node.js 22.12 ou superior. O pacote está marcado como privado para a avaliação local.
+Check that previously published URLs still work after a documentation change. Run against a static Astro build or an HTTP preview. The CLI reads a historical sitemap, explicit route expectations, or both. Requires Node.js 22.12 or later.
 
-## Rodar a partir do código-fonte
+## Try it locally
 
 ```sh
 npm ci
 npm test
-node bin/cli.js --help
-node bin/cli.js --config examples/bioconductor.json --preview https://bioconductor.org --json bioconductor-agora.json
+node bin/cli.js --config examples/bioconductor.json --preview https://bioconductor.org --json audit.json
 ```
 
-A última linha consulta apenas as rotas do exemplo. O resultado pode mudar com o tempo.
+For another project, install the local tarball as a development dependency and run `npx astro-route-audit`. The package is private during evaluation.
 
-## Instalar em outro projeto
-
-```sh
-npm install -D ./caf3z1n-astro-route-audit-0.1.0.tgz
-npx astro-route-audit --config route-audit.json --dist dist
-```
-
-Ajuste o caminho do tarball local. Exemplo de arquivo de configuração:
+## Define the URL contract
 
 ```json
 {
   "site": "https://docs.example.org",
-  "sitemaps": ["./referencia/sitemap.xml"],
+  "sitemaps": ["./reference/sitemap.xml"],
   "routes": [
-    "/guias/",
-    { "path": "/antiga/", "status": 301, "location": "/nova/" },
-    { "path": "/retirada/", "status": 410 }
+    "/guides/",
+    { "path": "/old/", "status": 308, "location": "/new/" },
+    { "path": "/retired/", "status": 410 }
   ]
 }
 ```
 
-Use apenas a origem em `site` e `--preview`. As rotas incluem o prefixo público. Um sitemap pode ser uma lista XML ou um índice de arquivos XML locais em UTF-8. Espelhe os subdiretórios do índice em disco. Para um índice publicado fora da raiz, informe `{"file":"referencia/index.xml","publicPath":"/docs/index.xml"}`. As regras explícitas substituem a expectativa padrão para a mesma rota. Forneça exemplos concretos para testar rotas com curingas.
+Save as `route-audit.json`. Paths include the public base prefix. Explicit paths override sitemap entries. Local UTF-8 XML sitemap indexes are expanded relative to the index directory. For an index originally served under a subdirectory, specify `{"file":"reference/index.xml","publicPath":"/docs/index.xml"}`.
 
-**Build estático.** `--dist` procura o arquivo exato, a página com extensão HTML ou o index da pasta e acompanha meta refresh imediato. Use `--base /docs` para remover o prefixo público ao procurar arquivos. Uma página presente é evidência do arquivo gerado. Exija códigos HTTP ou comportamento da CDN no modo prévia.
+## Audit a build or a preview
 
-**Prévia HTTP.** O CLI faz GET sem credenciais, verifica o primeiro status e destino e acompanha até dez redirecionamentos. Uma rota comum deve terminar em HTTP 200. Uma remoção planejada pode exigir 410. Para seguir um destino externo, indique sua origem na URL esperada em `location`. Respostas 401, 403, 429 e 5xx, além de erros de rede, são inconclusivas. Páginas de erro com HTTP 200 e âncoras ficam fora do escopo do MVP. Hosts com SSR exigem teste em prévia.
+```sh
+npx astro-route-audit --dist dist --base /docs
+npx astro-route-audit --preview https://preview.example.org --json audit.json
+```
 
-**Resultados e CI.** `--json arquivo.json` grava as expectativas, resultados e saltos por rota, com horário em UTC. Código 0 indica aprovação, 1 indica divergências e 2 indica erro operacional, configuração inválida ou evidência inconclusiva. Com `--report-only`, divergências por si só permitem saída 0.
+The static check looks for the file, an HTML page, or a directory index. It follows immediate HTML meta refresh redirects. An HTTP preview is required to verify hosting rules and exact HTTP status codes. Raw static checks do not interpret hosting-provider configuration.
 
-## Integrar ao Astro
+The HTTP check uses anonymous GET requests. It inspects the first response and follows up to ten redirects to verify the destination. Ordinary routes must end at HTTP 200. Cross-origin destinations require an explicit expected location. Network errors, 401, 403, 429, and 5xx responses are inconclusive. A soft 404 returned as HTTP 200 and an in-page fragment are outside the scope of this check.
+
+Exit codes are 0 for a passing audit, 1 for a failed expectation, and 2 for invalid configuration, operational errors or inconclusive results. With `--report-only`, failures alone yield exit code 0. JSON includes the route contract, observed redirect chain, outcome and UTC timestamp.
+
+## Astro integration
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -53,9 +52,10 @@ export default defineConfig({
 });
 ```
 
-Coloque o hook após as integrações que modificam o HTML. Nesse modo, use uma lista de rotas comuns ou um sitemap. Para expectativas de status use o CLI com `--preview` após o deploy.
+Place the integration after plugins that modify the emitted HTML. Use the preview CLI after deployment to verify the behavior of a hosting platform.
 
-## Repetir com os exemplos
+## Development
 
-- **OpenDialog.** Os dois XMLs do exemplo são cópias dos [arquivos públicos no commit 7725f67](https://github.com/opendialogai/docs/tree/7725f67634797fd147211195f65d9302a9a69cb4/reference). Após compilar a mesma revisão, rode `node bin/cli.js --config examples/opendialog.json --dist /caminho/para/dist`. Os detalhes do teste controlado estão no relatório entregue com o pacote.
-- **Bioconductor.** A referência vem da [issue 187](https://github.com/seandavi/bioc-infrastructure/issues/187). Os dois feeds RSS testados concretizam a regra para gitlog*.xml. As cinco subpáginas preservadas são controles. A [atualização da migração](https://github.com/Bioconductor/bioconductor.org/issues/440#issuecomment-6931042391) descreve decisões posteriores.
+Run `npm ci` and `npm test`. Keep user-facing messages, documentation, identifiers and commit subjects in English. Use Conventional Commits and group each change with its tests.
+
+See [case-study results](RESULTS.md) for the public inputs and the scope of each observation.

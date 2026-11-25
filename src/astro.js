@@ -10,12 +10,12 @@ export default function routeAudit({config='route-audit.json',reportOnly=false}=
       'astro:config:done': ({config:astro}) => {
         root = fileURLToPath(astro.root);
         base = astro.base;
-        if (astro.output === 'server') throw new Error('O hook suporta saída estática. Use --preview para SSR.');
+        if (astro.output === 'server') throw new Error('The build hook requires static output. Use --preview for SSR.');
       },
       'astro:build:done': async ({dir,logger}) => {
         const report = await audit({config:path.resolve(root,config),base,dist:fileURLToPath(dir)});
         logger.info(format(report));
-        if (exitCode(report,reportOnly)) throw new Error('Auditoria de rotas encontrou divergências ou verificações inconclusivas.');
+        if (exitCode(report,reportOnly)) throw new Error('Route audit detected failures or inconclusive results.');
       }
     }
   };

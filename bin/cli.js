@@ -2,7 +2,7 @@
 import { parseArgs } from 'node:util';
 import { writeFile } from 'node:fs/promises';
 import { audit, exitCode, format } from '../src/audit.js';
-const help = 'astro-route-audit --config rotas.json (--dist dist [--base /docs] | --preview https://preview.example) [--json relatorio.json] [--report-only]';
+const help = 'astro-route-audit --config routes.json (--dist dist [--base /docs] | --preview https://preview.example) [--json report.json] [--report-only]';
 try {
   const {values:v} = parseArgs({ options:{
     config:{type:'string', default:'route-audit.json'},dist:{type:'string'},preview:{type:'string'},

@@ -14,13 +14,13 @@ function refresh(html) {
   }
 }
 export async function staticTarget(dir, base = '/') {
-  if (!(await stat(dir)).isDirectory()) throw new Error('A saída deve ser um diretório.');
+  if (!(await stat(dir)).isDirectory()) throw new Error('Static output must be a directory.');
   const root = path.resolve(dir), prefix = base.replace(/\/$/,'');
   return async url => {
     const pathname = url.pathname;
     if (prefix && pathname !== prefix && !pathname.startsWith(prefix + '/')) return {status:404};
     const segments = pathname.slice(prefix.length).split('/').filter(Boolean).map(decodeURIComponent);
-    if (segments.some(s => !s || s === '.' || s === '..' || /[\\/:\x00]/.test(s))) throw new Error('Caminho incompatível com o build estático.');
+    if (segments.some(s => !s || s === '.' || s === '..' || /[\\/:\x00]/.test(s))) throw new Error('Path cannot be mapped to a static file.');
     const local = path.join(root,...segments);
     const candidates = pathname.endsWith('/') || !segments.length
       ? [path.join(local,'index.html')]
