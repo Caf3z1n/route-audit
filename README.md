@@ -6,6 +6,8 @@ Check that previously published URLs still work after a documentation change. Ru
 
 ## Try it locally
 
+From the source checkout:
+
 ```sh
 npm ci
 npm test

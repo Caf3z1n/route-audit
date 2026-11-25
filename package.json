@@ -17,7 +17,14 @@
   "files": [
     "bin",
     "src",
-    "README.md"
+    "examples",
+    "cases/venus-429/README.md",
+    "cases/venus-429/package.json",
+    "cases/venus-429/package-lock.json",
+    "cases/venus-429/replay.js",
+    "reports",
+    "README.md",
+    "RESULTS.md"
   ],
   "scripts": {
     "test": "node --test",
