@@ -1,0 +1,177 @@
+{
+  "timestamp": "2026-11-25T23:19:17.724Z",
+  "mode": "http",
+  "target": "https://bioconductor.org",
+  "site": "https://bioconductor.org",
+  "summary": {
+    "total": 13,
+    "pass": 5,
+    "fail": 8,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "path": "/help/publications/",
+      "expected": 301,
+      "expectedLocation": "https://impact.bioconductor.org/",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/help/publications/index.html",
+      "expected": 301,
+      "expectedLocation": "https://impact.bioconductor.org/",
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/index.html",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/dashboard/",
+      "expected": 410,
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/dashboard/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developers/gitlog/",
+      "expected": 410,
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/developers/gitlog/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developers/rss-feeds/gitlog.xml",
+      "expected": 410,
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/developers/rss-feeds/gitlog.xml",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developers/rss-feeds/gitlog.release.xml",
+      "expected": 410,
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/developers/rss-feeds/gitlog.release.xml",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developers/help_wanted/",
+      "expected": 410,
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/developers/help_wanted/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/rss/new_packages.rss",
+      "expected": 410,
+      "outcome": "fail",
+      "reason": "wrong-status",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/rss/new_packages.rss",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/help/publications/books/bioconductor-case-studies/",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/books/bioconductor-case-studies/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/help/publications/book-chapters/MiMB",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "redirect-resolves",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/book-chapters/MiMB",
+          "status": 302,
+          "location": "/help/publications/book-chapters/MiMB/"
+        },
+        {
+          "url": "https://bioconductor.org/help/publications/book-chapters/MiMB/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/help/publications/papers/pubmed/",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/papers/pubmed/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/help/publications/compendia/golubrr/",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/compendia/golubrr/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/help/publications/tech-reports/",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://bioconductor.org/help/publications/tech-reports/",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

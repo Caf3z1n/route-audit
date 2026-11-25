@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-11-25T23:19:19.261Z",
+  "mode": "http",
+  "target": "https://docs.opendialog.ai",
+  "site": "https://docs.opendialog.ai",
+  "summary": {
+    "total": 3,
+    "pass": 3,
+    "fail": 0,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "path": "/",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/getting-ready",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/getting-ready",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/release-notes/version-3-upgrade-guide",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/release-notes/version-3-upgrade-guide",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

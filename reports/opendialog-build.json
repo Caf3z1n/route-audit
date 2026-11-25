@@ -1,0 +1,2462 @@
+{
+  "timestamp": "2026-11-25T23:21:07.901Z",
+  "mode": "static",
+  "target": "dist",
+  "site": "https://docs.opendialog.ai",
+  "summary": {
+    "total": 204,
+    "pass": 204,
+    "fail": 0,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "path": "/",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/getting-ready",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/getting-ready",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/billing-and-plans",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/billing-and-plans",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/quick-start-ai-agent",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/quick-start-ai-agent",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/chat-management-conversation",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/chat-management-conversation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/welcome-conversation",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/welcome-conversation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/topic-conversation",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/topic-conversation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/global-no-match-conversation",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/global-no-match-conversation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/supporting-llm-actions",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/supporting-llm-actions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/semantic-classifier-query-classifier",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/the-start-from-scratch-ai-agent/semantic-classifier-query-classifier",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/getting-started-1/quick-start-ai-agents/a-process-handling-ai-agent",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/getting-started-1/quick-start-ai-agents/a-process-handling-ai-agent",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/ai-agent-creation-overview",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/ai-agent-creation-overview",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/add-a-new-topic-of-discussion",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/add-a-new-topic-of-discussion",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/use-knowledge-sources-via-rag",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/use-knowledge-sources-via-rag",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/adding-a-structured-conversation",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/adding-a-structured-conversation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/integrate",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/integrate",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/test-and-tweak-your-ai-agent",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/test-and-tweak-your-ai-agent",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/tutorials/publish-your-ai-agent",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/tutorials/publish-your-ai-agent",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-model",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-model",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-model/designing-conversational-ai-agents",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-model/designing-conversational-ai-agents",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/scenarios",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/scenarios",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/scenarios/conversations",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/scenarios/conversations",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/scenarios/scenes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/scenarios/scenes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/scenarios/turns-and-intents",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/scenarios/turns-and-intents",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/language-services",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/language-services",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/opendialog-account-management",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/opendialog-account-management",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/opendialog-account-management/create-and-manage-users",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/opendialog-account-management/create-and-manage-users",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/opendialog-account-management/delete-opendialog-account",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/opendialog-account-management/delete-opendialog-account",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/the-opendialog-workspace/opendialog-account-management/account-security",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/the-opendialog-workspace/opendialog-account-management/account-security",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/how-the-conversation-engine-thinks",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/how-the-conversation-engine-thinks",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/contexts",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/contexts",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/about-attributes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/about-attributes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/attribute-filters",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/attribute-filters",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/attribute-management",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/attribute-management",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/conditions-and-operators",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/conditions-and-operators",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/attributes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/attributes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/core-concepts/contexts-and-attributes/secret-context",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/core-concepts/contexts-and-attributes/secret-context",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/introduction-to-conversational-patterns",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/introduction-to-conversational-patterns",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-help",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-help",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-restart-chat-end",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-restart-chat-end",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-restart-chat-end-1",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-restart-chat-end-1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-no-match-pattern",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/contextual-no-match-pattern",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/the-contextual-faq-pattern",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/building-robust-assistants/the-contextual-faq-pattern",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings/anatomy-of-an-opening",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings/anatomy-of-an-opening",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings/transactional-openings",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings/transactional-openings",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/openings/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication/components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication/components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication/using-in-opendialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/authentication/using-in-opendialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/using-in-opendialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/using-in-opendialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/information-collection/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations/components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations/components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/recommendations/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling/components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling/components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/extended-telling/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/types-of-repair",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/types-of-repair",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/user-request-not-understood",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/user-request-not-understood",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/repair/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer/components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer/components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/transfer/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/example-dialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/example-dialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/using-in-opendialog",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/using-in-opendialog",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/additional-information",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/conversational-patterns/closing/additional-information",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/use-case",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/use-case",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/subject-matter-expertise",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/subject-matter-expertise",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/business-goals",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/business-goals",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs/primary-research",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs/primary-research",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs/secondary-research",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs/secondary-research",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs/outcome-user-profile",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/user-needs/outcome-user-profile",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/assistant-personality",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/assistant-personality",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/sample-dialogs",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/sample-dialogs",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/conversation-structure",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/conversation-structure",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/api-integration-capabilities",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/api-integration-capabilities",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/nlu-modeling",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/nlu-modeling",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/testing-strategy",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/testing-strategy",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/the-team",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/the-team",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/the-team/what-does-a-conversation-designer-do",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/the-team/what-does-a-conversation-designer-do",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/conversation-design/introduction/select-resources",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/conversation-design/introduction/select-resources",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-editor",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-editor",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/constructing-messages",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/constructing-messages",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-conditions",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-conditions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/messages-best-practices",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/messages-best-practices",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/subsequent-messages-virtual-intents",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/subsequent-messages-virtual-intents",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/using-attributes-in-messages",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/using-attributes-in-messages",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/using-markdown-in-messages",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/using-markdown-in-messages",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/text-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/text-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/image-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/image-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/button-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/button-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/date-picker-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/date-picker-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/audio-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/audio-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/form-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/form-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/full-page-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/full-page-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/conversation-handover-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/conversation-handover-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/autocomplete-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/autocomplete-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/address-autocomplete-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/address-autocomplete-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/list-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/list-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/rich-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/rich-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/location-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/location-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/e-sign-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/e-sign-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/file-upload-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/file-upload-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/meta-messages",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/meta-messages",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/meta-messages/progress-bar-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/meta-messages/progress-bar-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/attribute-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/attribute-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/message-design/message-types/twilio-content-template-message",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/message-design/message-types/twilio-content-template-message",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/webchat-interface-design",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/webchat-interface-design",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/webchat-interface-design/webchat-interface-settings",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/webchat-interface-design/webchat-interface-settings",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/webchat-interface-design/webchat-controls",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/webchat-interface-design/webchat-controls",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/designing-accessible-chatbots",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/designing-accessible-chatbots",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/conversation-designer/inclusive-design-and-conversation-design",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/conversation-designer/inclusive-design-and-conversation-design",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/openai",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/openai",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/azure",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/azure",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/google-gemini",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/google-gemini",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/output-attributes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/semantic-intent-classifier/output-attributes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/retrieval-augmented-generation",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/retrieval-augmented-generation",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/language-services/example-based-intent-classification-deprecated",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/language-services/example-based-intent-classification-deprecated",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/default-interpretor",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/default-interpretor",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/amazon-lex-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/amazon-lex-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/luis-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/luis-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/dialogflow-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/dialogflow-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/dialogflow-interpreter/google-dialogflow-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/dialogflow-interpreter/google-dialogflow-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/dialogflow-interpreter/google-dialogflow-knowledge-base",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/dialogflow-interpreter/google-dialogflow-knowledge-base",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/qna-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/qna-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/openai-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/available-interpreters/openai-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/using-a-language-service-interpreter",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/using-a-language-service-interpreter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/interpreter-orchestration",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/interpreter-orchestration",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/troubleshooting-interpreters",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/interpreters/troubleshooting-interpreters",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/openai",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/openai",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/azure-openai",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/azure-openai",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/output-attributes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/output-attributes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/using-conversation-history-memory-in-llm-actions",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/using-conversation-history-memory-in-llm-actions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/llm-action-analytics",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/interpreters-and-natural-language-understanding/llm-actions/llm-action-analytics",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/webhook-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/webhook-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/webhook-action/execution-logs-and-troubleshooting",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/webhook-action/execution-logs-and-troubleshooting",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/webhook-action/using-jmespath-expressions",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/webhook-action/using-jmespath-expressions",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/webhook-action/webhook-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/webhook-action/webhook-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/webhook-action/webhook-action/deprecated-developing-a-webhook-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/webhook-action/webhook-action/deprecated-developing-a-webhook-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/actions-from-library",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/actions-from-library",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/actions-from-library/freshdesk-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/actions-from-library/freshdesk-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/actions-from-library/send-to-email-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/actions-from-library/send-to-email-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/actions-from-library/set-attributes-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/actions-from-library/set-attributes-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/actions-from-library/datetime-action",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/actions-from-library/datetime-action",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/conversation-hand-off",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/conversation-hand-off",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/actions/conversation-hand-off/chatwoot",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/actions/conversation-hand-off/chatwoot",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/previewing-your-application",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/previewing-your-application",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/launching-your-application",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/launching-your-application",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/monitoring-your-application",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/monitoring-your-application",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/debugging-your-application",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/debugging-your-application",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/translating-your-application",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/translating-your-application",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/additional-menu-links",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/additional-menu-links",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/faq",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/faq",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/opendialog-platform/troubleshooting-and-common-problems",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/opendialog-platform/troubleshooting-and-common-problems",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/introduction",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/introduction",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/webchat-api",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/webchat-api",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/webchat-authentication",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/webchat-authentication",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/user-tracking",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/user-tracking",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/load-webchat-within-a-page-element",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/load-webchat-within-a-page-element",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/how-to-enable-javascript-in-your-browser",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/how-to-enable-javascript-in-your-browser",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/sdk",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/sdk",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/sdk/methods",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/sdk/methods",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/sdk/events",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/sdk/events",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/webchat/sdk/custom-components",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/webchat/sdk/custom-components",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/interaction-api",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/interaction-api",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/public-apis",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/public-apis",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/public-apis/knowledge-service-apis",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/public-apis/knowledge-service-apis",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/public-apis/user-interactions-apis",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/public-apis/user-interactions-apis",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/public-apis/webchat-deep-link-apis",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/public-apis/webchat-deep-link-apis",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/developing-with-opendialog/public-apis/user-data-export-apis",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/developing-with-opendialog/public-apis/user-data-export-apis",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/release-notes/release-notes",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/release-notes/release-notes",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "path": "/release-notes/version-3-upgrade-guide",
+      "expected": "reachable",
+      "outcome": "pass",
+      "reason": "present",
+      "trace": [
+        {
+          "url": "https://docs.opendialog.ai/release-notes/version-3-upgrade-guide",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

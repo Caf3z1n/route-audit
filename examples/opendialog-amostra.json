@@ -1,0 +1,8 @@
+{
+  "site": "https://docs.opendialog.ai",
+  "routes": [
+    "/",
+    "/getting-started-1/getting-ready",
+    "/release-notes/version-3-upgrade-guide"
+  ]
+}

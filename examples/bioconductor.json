@@ -1,0 +1,44 @@
+{
+  "site": "https://bioconductor.org",
+  "routes": [
+    {
+      "path": "/help/publications/",
+      "status": 301,
+      "location": "https://impact.bioconductor.org/"
+    },
+    {
+      "path": "/help/publications/index.html",
+      "status": 301,
+      "location": "https://impact.bioconductor.org/"
+    },
+    {
+      "path": "/dashboard/",
+      "status": 410
+    },
+    {
+      "path": "/developers/gitlog/",
+      "status": 410
+    },
+    {
+      "path": "/developers/rss-feeds/gitlog.xml",
+      "status": 410
+    },
+    {
+      "path": "/developers/rss-feeds/gitlog.release.xml",
+      "status": 410
+    },
+    {
+      "path": "/developers/help_wanted/",
+      "status": 410
+    },
+    {
+      "path": "/rss/new_packages.rss",
+      "status": 410
+    },
+    "/help/publications/books/bioconductor-case-studies/",
+    "/help/publications/book-chapters/MiMB",
+    "/help/publications/papers/pubmed/",
+    "/help/publications/compendia/golubrr/",
+    "/help/publications/tech-reports/"
+  ]
+}
