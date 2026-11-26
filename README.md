@@ -2,12 +2,14 @@
 
 Check that your published URLs still work before you deploy.
 
+A moved guide can redirect to your homepage and still return HTTP 200. Set `finalLocation` in the [URL contract](#define-the-url-contract) to catch a redirect that lands on the wrong page. If you already run a link checker, you can [compare its recorded destinations](#reuse-results-from-a-link-checker) without sending another request.
+
 ## Catch a missing page
 
 With Node.js 22.12 or later, run:
 
 ```sh
-npx route-audit@0.3.2 --demo
+npx route-audit@latest --demo
 ```
 
 The demo checks two URLs in a temporary build, removes `guide.html`, and checks the same URLs again:
@@ -110,7 +112,9 @@ Save as `route-audit.json`. Paths include the public base prefix. Explicit paths
 
 `location` checks the first redirect. `finalLocation` checks the URL of the final successful page. In the example above, `/old/ → /v2/ → /` fails even when the homepage returns 200. Use `finalLocation` on its own to accept any supported chain leading to the expected page. Paths and query strings are compared after URL resolution; fragments are ignored. A static build can verify the final destination of immediate HTML meta refreshes. For a rule with an HTTP status, use an HTTP preview. A `410` rule cannot specify a final page.
 
-Already using a link checker? Compare destinations from its existing crawl:
+## Reuse results from a link checker
+
+Pass the expected URL and the final URL your checker observed to `compareDestinations`:
 
 ```js
 import { compareDestinations } from 'route-audit/destinations';
@@ -123,7 +127,7 @@ const result = compareDestinations({
 // result.outcome === 'fail'; result.reason === 'wrong-final-destination'
 ```
 
-See the [Linkinator, broken-link-checker and link-check examples](examples/checkers/README.md) for runnable adapters and comparisons across preview origins.
+The [checker examples](examples/checkers/README.md) show how to collect final URLs with Linkinator and broken-link-checker and compare results across preview origins. The link-check example includes a local patch to expose the final URL.
 
 ## Audit a build or a preview
 
