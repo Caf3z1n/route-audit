@@ -1,6 +1,6 @@
 {
   "name": "route-audit",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -33,14 +33,16 @@
     "cases/venus-429/README.md",
     "cases/venus-429/package.json",
     "cases/venus-429/package-lock.json",
-    "cases/venus-429/replay.js",
+    "cases/venus-429/*.js",
     "reports",
     "README.md",
-    "RESULTS.md"
+    "RESULTS.md",
+    "docs",
+    ".github/workflows/compare-routes.yml"
   ],
   "scripts": {
     "test": "node --test",
-    "format:check": "prettier --check src bin test cases/venus-429/replay.js"
+    "format:check": "prettier --check src bin test \"cases/venus-429/*.js\""
   },
   "dependencies": {
     "parse5": "7.3.0",

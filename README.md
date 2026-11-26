@@ -25,6 +25,27 @@ The command exits with code 1 because `/guide` disappeared. It cleans up its tem
 
 The Venus Protocol docs built successfully while six URLs embedded in governance proposals returned 404. In local HTTP previews of the real builds, Route Audit caught all six before the fix and followed all six permanent redirects to the right pages afterward. [See the before-and-after results.](cases/venus-429/README.md)
 
+## Find the links your consumers already use
+
+Point `sources` at local SDK or example directories:
+
+```json
+{
+  "site": "https://docs.example.org",
+  "sources": ["../sdk/src", "../sdk/examples"]
+}
+```
+
+Compare the same discovered inventory against the published site and a completed PR preview:
+
+```sh
+npx --no-install route-audit --baseline https://docs.example.org --preview https://pr-42.example.org --markdown route-audit.md --json comparison.json
+```
+
+New failures can block a PR; existing failures appear in the backlog. The summary includes both HTTP chains, the number of references and a source permalink from the SDK checkout. To inspect the route and line inventory independently, run `npx --no-install route-audit --discover --json inventory.json`.
+
+[Discovery, exit codes and PR comments](docs/pull-requests.md) · [Reproduce the historical Venus comparison](cases/venus-429/README.md#discover-links-in-the-consumer-repository)
+
 ## Try it on your Astro or Starlight site
 
 Install in the site project with Node.js 22.12 or later:
