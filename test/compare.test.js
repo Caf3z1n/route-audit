@@ -134,6 +134,120 @@ test('CLI compares a single attributed inventory, writes the PR report and appli
   );
   assert.equal((await command(root, '--discover', '--preview', after)).code, 2);
 });
+test('CLI distinguishes first-hop, final and historical failures across preview origins', async (t) => {
+  const root = await mkdtemp(path.join(tmpdir(), 'route-final-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const routes = [
+    {
+      path: '/legacy',
+      status: 308,
+      location: '/step',
+      finalLocation: '/guide?rev=1',
+    },
+    { path: '/untouched', status: 308, location: '/step' },
+    { path: '/direct', finalLocation: '/direct#intro' },
+    {
+      path: '/first',
+      status: 308,
+      location: '/guide',
+      finalLocation: '/guide',
+    },
+    { path: '/missing', finalLocation: '/guide' },
+    { path: '/external', finalLocation: '/guide' },
+  ];
+  const published = {
+    '/legacy': [308, '/step'],
+    '/untouched': [308, '/step'],
+    '/step': [301, '/guide?rev=1'],
+    '/guide?rev=1': [200],
+    '/direct': [200],
+    '/first': [308, '/step'],
+    '/external': [302, 'https://unapproved.invalid/path'],
+  };
+  const preview = { ...published, '/step': [301, '/'], '/': [200] };
+  const baselineUrl = await target(t, published);
+  const previewUrl = await target(t, preview);
+  // Generate a preview-absolute Location; the contract stays on the public origin.
+  preview['/legacy'] = [308, previewUrl + '/step'];
+  published['/legacy'] = [308, baselineUrl + '/step'];
+  await writeFile(
+    path.join(root, 'route-audit.json'),
+    JSON.stringify({ site: 'https://docs.test', routes }),
+  );
+  assert.equal(
+    (await command(root, '--discover', '--json', 'inventory.json')).code,
+    0,
+  );
+  const r = await command(
+    root,
+    '--config',
+    'inventory.json',
+    '--baseline',
+    baselineUrl,
+    '--preview',
+    previewUrl,
+    '--json',
+    'report.json',
+    '--markdown',
+    'report.md',
+  );
+  assert.equal(r.code, 2); // the unapproved external hop remains inconclusive
+  const report = JSON.parse(
+    await readFile(path.join(root, 'report.json'), 'utf8'),
+  );
+  const byPath = new Map(report.results.map((row) => [row.path, row]));
+  assert.equal(byPath.get('/legacy').classification, 'regression');
+  assert.equal(
+    byPath.get('/legacy').expectedFinalLocation,
+    'https://docs.test/guide?rev=1',
+  );
+  assert.equal(byPath.get('/legacy').preview.reason, 'wrong-final-destination');
+  assert.equal(
+    byPath.get('/legacy').preview.trace.at(-1).url,
+    'https://docs.test/',
+  );
+  assert.equal(byPath.get('/untouched').classification, 'passing');
+  assert.equal(byPath.get('/direct').classification, 'passing');
+  assert.equal(byPath.get('/first').preview.reason, 'wrong-destination');
+  assert.equal(byPath.get('/missing').preview.reason, 'missing');
+  assert.equal(
+    byPath.get('/external').preview.reason,
+    'external-target-not-checked',
+  );
+  const md = await readFile(path.join(root, 'report.md'), 'utf8');
+  assert.match(md, /Expected final: <code>\/guide<\/code>/);
+  assert.doesNotMatch(md, /rev=1/);
+});
+test('HTTP follows an explicitly expected external final origin and preserves the boundary at further hops', async (t) => {
+  const root = await mkdtemp(path.join(tmpdir(), 'route-external-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const cdn = await target(t, {
+    '/guide': [200],
+    '/moved': [301, 'https://unapproved.invalid/'],
+  });
+  const preview = await target(t, {
+    '/ok': [302, cdn + '/guide'],
+    '/extra': [302, cdn + '/moved'],
+  });
+  await writeFile(
+    path.join(root, 'route-audit.json'),
+    JSON.stringify({
+      site: 'https://docs.test',
+      routes: ['/ok', '/extra'].map((path) => ({
+        path,
+        finalLocation: cdn + '/guide',
+      })),
+    }),
+  );
+  const r = await command(root, '--preview', preview, '--json', 'report.json');
+  assert.equal(r.code, 2);
+  const { results } = JSON.parse(
+    await readFile(path.join(root, 'report.json'), 'utf8'),
+  );
+  assert.equal(results[0].outcome, 'pass');
+  assert.equal(results[1].reason, 'external-target-not-checked');
+  assert.equal(results[1].trace.length, 2);
+});
 test('PR Markdown bounds large reports and safely displays untrusted text and redirect targets', () => {
   const path = '/bad?<secret>';
   const one = {

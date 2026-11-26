@@ -44,6 +44,7 @@ export async function compare({ config, baseline, preview }) {
       path: rule.path,
       expected: rule.status ?? 'reachable',
       ...(rule.location && { expectedLocation: rule.location }),
+      ...(rule.finalLocation && { expectedFinalLocation: rule.finalLocation }),
       references: rule.references ?? [],
       classification,
       baseline: baselineResult,
@@ -80,6 +81,12 @@ export function formatComparison({ summary, results }) {
         row.path,
         statuses(row.baseline) + ' vs ' + statuses(row.preview),
         row.preview.reason,
+        ...(row.preview.reason === 'wrong-final-destination'
+          ? [
+              'expectedFinal=' + row.expectedFinalLocation,
+              'actualFinal=' + row.preview.trace.at(-1).url,
+            ]
+          : []),
         `${row.references.length} reference(s)`,
       ].join('  '),
     );

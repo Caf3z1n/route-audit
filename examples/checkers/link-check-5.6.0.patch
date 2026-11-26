@@ -1,0 +1,46 @@
+--- a/lib/proto/http.js
++++ b/lib/proto/http.js
+@@ -58,16 +58,29 @@
+             Object.assign(options.headers, opts.headers);
+         }
+
++        let finalUrl = url;
++        function followed(location) {
++            finalUrl = new URL(location, finalUrl).href;
++        }
++        function report(res, err) {
++            const result = new LinkCheckResult(opts, link, res ? res.statusCode : 0, err);
++            if (res && !err) {
++                result.finalUrl = finalUrl;
++            }
++            callback(null, result);
++        }
++
+         needle.head(url, options, function (err, res) {
+             if (!err && res.statusCode === 200) {
+                 if (additionalMessage){
+                   err = !err ? additionalMessage : `${err} ${additionalMessage}`;
+                 }
+-                callback(null, new LinkCheckResult(opts, link, res ? res.statusCode : 0, err)); // alive, returned 200 OK
++                report(res, err); // alive, returned 200 OK
+                 return;
+             }
+
+             // if HEAD fails (405 Method Not Allowed, etc), try GET
++            finalUrl = url; // GET starts from the original URL after the HEAD attempt.
+             needle.get(url, options, function (err, res) {
+                 // If enabled in opts, the response was a 429 (Too Many Requests) and there is a retry-after provided, wait and then retry
+                 if (retryOn429 && res && res.statusCode === 429 && attempts < retryCount) {
+@@ -119,9 +132,9 @@
+                     if (additionalMessage){
+                       err = !err ? additionalMessage : `${err} ${additionalMessage}`;
+                     }
+-                    callback(null, new LinkCheckResult(opts, link, res ? res.statusCode : 0, err));
++                    report(res, err);
+                 }
+-            }).pipe(new BlackHole());
+-        });
++            }).on('redirect', followed).pipe(new BlackHole());
++        }).on('redirect', followed);
+     },
+ };

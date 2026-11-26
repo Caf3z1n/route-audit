@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { loadConfig, origin } from './input.js';
 import { httpTarget, staticTarget } from './targets.js';
+import { compareDestinations } from './destinations.js';
 
 const redirects = new Set(['meta', 301, 302, 303, 307, 308]);
 const maxRedirects = 10;
@@ -12,13 +13,15 @@ function unavailable(status) {
 async function check(rule, { site, preview, read }) {
   const trace = [];
   const visited = new Set();
-  let current = new URL(rule.path, site);
+  const requestedUrl = new URL(rule.path, site);
+  let current = requestedUrl;
 
   function result(outcome, reason, extra) {
     return {
       path: rule.path,
       expected: rule.status ?? 'reachable',
       ...(rule.location && { expectedLocation: rule.location }),
+      ...(rule.finalLocation && { expectedFinalLocation: rule.finalLocation }),
       ...(rule.references?.length && { references: rule.references }),
       outcome,
       reason,
@@ -43,8 +46,18 @@ async function check(rule, { site, preview, read }) {
         if (status !== rule.status) return result('fail', 'wrong-status');
         if (status === 410) return result('pass', 'gone-as-expected');
       }
-      if (status === 200)
+      if (status === 200) {
+        if (rule.finalLocation) {
+          const final = compareDestinations({
+            requestedUrl,
+            expected: rule.finalLocation,
+            observed: current,
+          });
+          if (final.outcome !== 'pass')
+            return result(final.outcome, final.reason);
+        }
         return result('pass', hop ? 'redirect-resolves' : 'present');
+      }
       if (!redirects.has(status))
         return result('fail', status === 404 ? 'missing' : 'unreachable');
       if (!location) return result('fail', 'missing-location');
@@ -71,8 +84,11 @@ async function check(rule, { site, preview, read }) {
       if (
         destination.origin !== site &&
         (!preview ||
-          !rule.location ||
-          destination.origin !== new URL(rule.location).origin)
+          ![rule.location, rule.finalLocation].some(
+            (allowed) =>
+              allowed &&
+              destination.origin === new URL(allowed, requestedUrl).origin,
+          ))
       ) {
         return result('unknown', 'external-target-not-checked');
       }
@@ -144,6 +160,11 @@ export function format({ mode, summary, results }) {
         'expected=' + expected,
         'observed=' + (observed || 'unavailable'),
         row.reason,
+        row.reason === 'wrong-final-destination' &&
+          'expectedFinal=' +
+            row.expectedFinalLocation +
+            '  actualFinal=' +
+            row.trace.at(-1).url,
         row.detail,
       ]
         .filter(Boolean)

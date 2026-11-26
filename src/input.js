@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sitemapPaths } from './sitemap.js';
 import { discoverSources } from './discovery.js';
+import { destinationUrl } from './destinations.js';
 
 export function origin(value) {
   const url = new URL(value);
@@ -99,6 +100,15 @@ export async function loadConfig(filename) {
         throw new Error('Invalid redirect destination.');
       location = u.href;
     }
+    let finalLocation;
+    if (rule.finalLocation !== undefined) {
+      if (rule.status === 410)
+        throw new Error('A gone route cannot have a finalLocation: ' + key);
+      finalLocation = destinationUrl(
+        rule.finalLocation,
+        new URL(key, site),
+      ).href;
+    }
     const references = contractReferences(
       routes.get(key)?.references,
       rule.references,
@@ -107,6 +117,7 @@ export async function loadConfig(filename) {
       path: key,
       status: rule.status,
       location,
+      ...(finalLocation && { finalLocation }),
       ...(references?.length && { references }),
     });
   }

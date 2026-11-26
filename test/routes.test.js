@@ -231,3 +231,40 @@ test('HTML fast path still detects encoded refresh directives and ignores script
   );
   assert.equal(report.results[0].trace[1].url, 'https://docs.test/done');
 });
+
+test('static finalLocation follows meta refresh; invalid final contracts fail before scanning', async (t) => {
+  const { dir, put } = await workspace(t);
+  const old = { path: '/old', finalLocation: '/guide' };
+  const config = await put('config.json', {
+    site: 'https://docs.test',
+    routes: [old],
+  });
+  await put(
+    'old/index.html',
+    '<meta http-equiv="refresh" content="0;url=/step">',
+  );
+  await put(
+    'step/index.html',
+    '<meta http-equiv="refresh" content="0;url=/guide">',
+  );
+  await put('guide/index.html', '<title>Guide</title>');
+  let report = await audit({ config, dist: dir });
+  assert.equal(exitCode(report), 0);
+  await put('index.html', '<title>Home</title>');
+  await put('step/index.html', '<meta http-equiv="refresh" content="0;url=/">');
+  report = await audit({ config, dist: dir });
+  assert.equal(exitCode(report), 1);
+  assert.equal(exitCode(report, true), 0);
+  assert.equal(report.results[0].reason, 'wrong-final-destination');
+  for (const invalid of [
+    { ...old, status: 410 },
+    { ...old, finalLocation: null },
+    { ...old, finalLocation: 'mailto:docs@example.org' },
+  ]) {
+    await put('config.json', { site: 'https://docs.test', routes: [invalid] });
+    await assert.rejects(
+      audit({ config, dist: dir }),
+      /finalLocation|destination/,
+    );
+  }
+});

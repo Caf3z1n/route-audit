@@ -100,13 +100,30 @@ With `--report-only`, missing pages appear in the job log without failing the jo
   "sitemaps": ["./reference/sitemap.xml"],
   "routes": [
     "/guides/",
-    { "path": "/old/", "status": 308, "location": "/new/" },
+    { "path": "/old/", "status": 308, "location": "/v2/", "finalLocation": "/guide/" },
     { "path": "/retired/", "status": 410 }
   ]
 }
 ```
 
 Save as `route-audit.json`. Paths include the public base prefix. Explicit paths override sitemap entries. Local UTF-8 XML sitemap indexes are expanded relative to the index directory. For an index originally served under a subdirectory, specify `{"file":"reference/index.xml","publicPath":"/docs/index.xml"}`.
+
+`location` checks the first redirect. `finalLocation` checks the URL of the final successful page. In the example above, `/old/ → /v2/ → /` fails even when the homepage returns 200. Use `finalLocation` on its own to accept any supported chain leading to the expected page. Paths and query strings are compared after URL resolution; fragments are ignored. A static build can verify the final destination of immediate HTML meta refreshes. For a rule with an HTTP status, use an HTTP preview. A `410` rule cannot specify a final page.
+
+Already using a link checker? Compare destinations from its existing crawl:
+
+```js
+import { compareDestinations } from 'route-audit/destinations';
+
+const result = compareDestinations({
+  requestedUrl: 'https://docs.example.org/old/',
+  expected: '/guide/',
+  observed: 'https://docs.example.org/',
+});
+// result.outcome === 'fail'; result.reason === 'wrong-final-destination'
+```
+
+See the [Linkinator, broken-link-checker and link-check examples](examples/checkers/README.md) for runnable adapters and comparisons across preview origins.
 
 ## Audit a build or a preview
 
@@ -117,7 +134,7 @@ npx route-audit --preview https://preview.example.org --json audit.json
 
 The static check looks for the file, an HTML page, or a directory index. It follows immediate HTML meta refresh redirects. An HTTP preview is required to verify hosting rules and exact HTTP status codes. Raw static checks do not interpret hosting-provider configuration.
 
-The HTTP check uses anonymous GET requests. It inspects the first response and follows up to ten redirects to verify the destination. Ordinary routes must end at HTTP 200. Cross-origin destinations require an explicit expected location. Network errors, 401, 403, 429, and 5xx responses are inconclusive. A soft 404 returned as HTTP 200 and an in-page fragment are outside the scope of this check.
+The HTTP check uses anonymous GET requests. It inspects the first response and follows up to ten redirects to verify the destination. Ordinary routes must end at HTTP 200. External origins must be explicitly named in `location` or `finalLocation` for that route. Network errors, 401, 403, 429, and 5xx responses are inconclusive. A soft 404 returned as HTTP 200 and an in-page fragment are outside the scope of this check.
 
 Exit codes are 0 for a passing audit, 1 for a failed expectation, and 2 for invalid configuration, operational errors or inconclusive results. With `--report-only`, failures alone yield exit code 0. JSON includes the route contract, observed redirect chain, outcome and UTC timestamp.
 

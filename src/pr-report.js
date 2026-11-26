@@ -80,6 +80,12 @@ export function comparisonMarkdown(report) {
         ' (' +
         html(row.preview.reason) +
         ')',
+      ...(row.expectedFinalLocation
+        ? [
+            '  - Expected final: ' +
+              code(displayUrl(new URL(row.expectedFinalLocation), report.site)),
+          ]
+        : []),
     ].join('\n');
     bytes += Buffer.byteLength(block);
     if (bytes > 32_000) break;

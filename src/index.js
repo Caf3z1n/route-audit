@@ -1,4 +1,5 @@
 export { audit, exitCode, format } from './audit.js';
+export { compareDestinations } from './destinations.js';
 export { default } from './astro.js';
 export { compare, comparisonExitCode, formatComparison } from './compare.js';
 export { comparisonMarkdown } from './pr-report.js';
