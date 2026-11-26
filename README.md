@@ -2,6 +2,27 @@
 
 Check that your published URLs still work before you deploy.
 
+## Catch a missing page
+
+With Node.js 22.12 or later, run:
+
+```sh
+npx route-audit@0.3.2 --demo
+```
+
+The demo checks two URLs in a temporary build, removes `guide.html`, and checks the same URLs again:
+
+```text
+Before removing guide.html
+static: 2/2 OK, 0 failed, 0 inconclusive.
+
+After removing guide.html
+static: 1/2 OK, 1 failed, 0 inconclusive.
+fail  /guide  expected=reachable  observed=404  missing
+```
+
+The command exits with code 1 because `/guide` disappeared. It cleans up its temporary files.
+
 The Venus Protocol docs built successfully while six URLs embedded in governance proposals returned 404. In local HTTP previews of the real builds, Route Audit caught all six before the fix and followed all six permanent redirects to the right pages afterward. [See the before-and-after results.](cases/venus-429/README.md)
 
 ## Try it on your Astro or Starlight site
@@ -12,11 +33,7 @@ Install in the site project with Node.js 22.12 or later:
 npm install -D route-audit
 ```
 
-You can also install the same package from a [GitHub release](https://github.com/Caf3z1n/route-audit/releases). For v0.3.1:
-
-```sh
-npm install -D https://github.com/Caf3z1n/route-audit/releases/download/v0.3.1/route-audit-0.3.1.tgz
-```
+Release tarballs are also available on [GitHub](https://github.com/Caf3z1n/route-audit/releases).
 
 Save the sitemap from your **last published version** in `reference/` and commit it. For Astro sites with a sitemap index, copy `sitemap-index.xml` and its child files (such as `sitemap-0.xml`) from the published build, keeping their relative paths. This snapshot is the list of URLs future builds must preserve.
 

@@ -1,13 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
+import {
+  mkdtemp,
+  mkdir,
+  readdir,
+  readFile,
+  writeFile,
+  rm,
+} from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createServer } from 'node:http';
 import { once } from 'node:events';
 import { audit, exitCode } from '../src/audit.js';
 import integrate from '../src/astro.js';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 async function workspace(t) {
   const dir = await mkdtemp(path.join(tmpdir(), 'route-audit-test-'));
@@ -23,6 +31,24 @@ async function workspace(t) {
   }
   return { dir, put };
 }
+
+test('CLI demo reports the removed page and cleans up only its sample build', async (t) => {
+  const { dir, put } = await workspace(t);
+  const guide = await put('guide.html', 'existing project page');
+  const cli = fileURLToPath(new URL('../bin/cli.js', import.meta.url));
+  const result = spawnSync(process.execPath, [cli, '--demo'], {
+    cwd: dir,
+    env: { ...process.env, TMPDIR: dir, TEMP: dir, TMP: dir },
+    encoding: 'utf8',
+  });
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(
+    result.stdout,
+    /2\/2 OK[\s\S]*1\/2 OK[\s\S]*fail  \/guide .*missing/,
+  );
+  assert.deepEqual(await readdir(dir), ['guide.html']);
+  assert.equal(await readFile(guide, 'utf8'), 'existing project page');
+});
 test('static build: index, preserved, missing, redirects, loop, base and HTTP-only rule', async (t) => {
   const { dir, put } = await workspace(t);
   const urls = ['', 'page', 'missing', 'old', 'loop', 'gone'];

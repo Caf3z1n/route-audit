@@ -3,7 +3,7 @@ import { parseArgs } from 'node:util';
 import { writeFile } from 'node:fs/promises';
 import { audit, exitCode, format } from '../src/audit.js';
 const help =
-  'route-audit --config routes.json (--dist dist [--base /docs] | --preview https://preview.example) [--json report.json] [--report-only]';
+  'route-audit --config routes.json (--dist dist [--base /docs] | --preview https://preview.example) [--json report.json] [--report-only]\nroute-audit --demo';
 try {
   const { values: v } = parseArgs({
     options: {
@@ -13,11 +13,16 @@ try {
       base: { type: 'string' },
       json: { type: 'string' },
       'report-only': { type: 'boolean' },
+      demo: { type: 'boolean' },
       help: { type: 'boolean', short: 'h' },
     },
   });
   if (v.help) console.log(help);
-  else {
+  else if (v.demo) {
+    if (process.argv.length !== 3) throw new Error('Run --demo on its own.');
+    const { runDemo } = await import('./demo.js');
+    process.exitCode = await runDemo();
+  } else {
     const report = await audit(v);
     if (v.json) await writeFile(v.json, JSON.stringify(report, null, 2) + '\n');
     console.log(format(report));
