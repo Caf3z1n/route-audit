@@ -4,6 +4,8 @@
 
 The auditor flagged all six historical 404s in the parent of PR 429. After the merge, the same six paths redirected to their expected destinations and ended in HTTP 200. The current public site also passed. [Method, exact revisions and six route traces](cases/venus-429/README.md)
 
+A second replay discovered the routes directly in the proposal repository before the fix. In the rollback control, six of the 31 unique paths regressed, affecting 92 references across 90 files. Comparing two copies of the broken revision reported six existing failures and exited successfully. [Method](cases/venus-429/README.md#discover-links-in-the-consumer-repository) and [example PR comment](reports/venus-429/rollback-summary.md).
+
 ## OpenDialog
 
 The historical sitemap in [OpenDialog revision 7725f67](https://github.com/opendialogai/docs/tree/7725f67634797fd147211195f65d9302a9a69cb4/reference) lists 204 URLs. All 204 resolved in its static build. Omitting only `getting-started-1/getting-ready/index.html` from a disposable copy produced 203 passes and one missing route. The untouched build returned exit code 0 and the controlled regression returned 1.

@@ -57,3 +57,25 @@ The replay fails if any old path returns an unexpected status, follows a differe
 ```sh
 node bin/cli.js --config examples/venus-429.json --preview https://docs-v4.venus.io --json venus-live.json
 ```
+
+## Discover links in the consumer repository
+
+The independent input to this replay is the [October 30 proposal repository](https://github.com/VenusProtocol/vips/tree/19a7e734d4cd793c39ed3f447e90dcd57648139a/vips). The discovery command reads the checked-out `vips/` directory and freezes its inventory before checking either site revision. The six known URLs from the upstream PR are not used as discovery inputs.
+
+```sh
+git clone https://github.com/VenusProtocol/vips.git ../venus-vips
+git -C ../venus-vips checkout --detach 19a7e734d4cd793c39ed3f447e90dcd57648139a
+node cases/venus-429/compare.js ../venus-before ../venus-after ../venus-vips ./local-results/compare
+```
+
+Use the same two built worktrees and case dependencies as above. The output directory contains the reusable route inventory and JSON and Markdown for each comparison.
+
+| Baseline | Preview | CLI result |
+| --- | --- | --- |
+| Before | After | Six fixes, 25 passing, exit 0 |
+| After | Before (simulated rollback) | Six regressions, 25 passing, exit 1 |
+| Before | Before (control) | Six existing failures, 25 passing, exit 0 |
+
+Discovery found 360 literal references to 31 paths. The six affected routes appeared 92 times across 90 source files. The most referenced appeared 79 times. This counts occurrences in the checkout, not visits or separate installations.
+
+[Generated PR summary for the simulated rollback](../../reports/venus-429/rollback-summary.md)
