@@ -1,0 +1,131 @@
+name: Compare published routes
+on:
+  workflow_call:
+    inputs:
+      baseline:
+        description: Origin serving the published site
+        type: string
+        required: true
+      preview:
+        description: Origin serving this PR's completed preview
+        type: string
+        required: true
+      config:
+        type: string
+        default: route-audit.json
+      source-repository:
+        description: Optional public SDK or examples repository (owner/repo)
+        type: string
+        default: ''
+      source-ref:
+        description: Commit or ref to check out in route-audit-consumer/
+        type: string
+        default: ''
+      pr-number:
+        description: PR number from trusted deployment metadata (workflow_run or deployment_status only)
+        type: number
+        default: 0
+      head-sha:
+        description: Corresponding pull request head commit from trusted deployment metadata
+        type: string
+        default: ''
+      upload-json:
+        description: Retain the full comparison, including HTTP traces and source references
+        type: boolean
+        default: false
+      report-only:
+        type: boolean
+        default: false
+
+permissions: {}
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      report: ${{ steps.summary.outputs.report }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - if: inputs.source-repository != ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ inputs.source-repository }}
+          ref: ${{ inputs.source-ref }}
+          path: route-audit-consumer
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - run: npm ci
+      - name: Compare the published site with this preview
+        env:
+          CONFIG: ${{ inputs.config }}
+          BASELINE: ${{ inputs.baseline }}
+          PREVIEW: ${{ inputs.preview }}
+          REPORT_ONLY: ${{ inputs.report-only }}
+        run: |
+          args=(--config "$CONFIG" --baseline "$BASELINE" --preview "$PREVIEW" --markdown "$RUNNER_TEMP/route-audit.md" --json "$RUNNER_TEMP/route-audit.json")
+          if [[ "$REPORT_ONLY" == true ]]; then args+=(--report-only); fi
+          npx --no-install route-audit "${args[@]}"
+      - name: Expose the report even if the comparison failed
+        id: summary
+        if: ${{ !cancelled() }}
+        run: |
+          report="$RUNNER_TEMP/route-audit.md"
+          if [[ -s "$report" ]]; then
+            cat "$report" >> "$GITHUB_STEP_SUMMARY"
+            printf 'report=%s\n' "$(base64 -w0 "$report")" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save full comparison
+        if: ${{ !cancelled() && inputs.upload-json && steps.summary.outputs.report != '' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: route-audit-comparison
+          path: ${{ runner.temp }}/route-audit.json
+          retention-days: 7
+          overwrite: true
+
+  comment:
+    needs: compare
+    if: >-
+      ${{ !cancelled() && needs.compare.outputs.report != '' &&
+      ((github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'dependabot[bot]') ||
+      ((github.event_name == 'workflow_run' || github.event_name == 'deployment_status') &&
+      inputs.pr-number > 0 && inputs.head-sha != '')) }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    concurrency:
+      group: route-audit-comment-${{ github.event.pull_request.number || inputs.pr-number }}
+      cancel-in-progress: false
+    steps:
+      # No source checkout or execution of PR code in this job.
+      - name: Create or update the Route Audit comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number || inputs.pr-number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || inputs.head-sha }}
+          REPORT: ${{ needs.compare.outputs.report }}
+        run: |
+          set -euo pipefail
+          current_head=$(gh api "repos/$REPO/pulls/$PR" --jq .head.sha)
+          if [[ "$current_head" != "$HEAD_SHA" ]]; then exit 0; fi
+          marker='<!-- route-audit:comparison -->'
+          printf '%s\n' "$marker" > body.md
+          printf '%s' "$REPORT" | base64 --decode >> body.md
+          printf '\n[Check run](%s/%s/actions/runs/%s) for `%.12s`\n' "$GITHUB_SERVER_URL" "$REPO" "$GITHUB_RUN_ID" "$HEAD_SHA" >> body.md
+          comments="repos/$REPO/issues/$PR/comments"
+          id=$(gh api --paginate "$comments" --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("<!-- route-audit:comparison -->"))) | .id' | awk 'NR == 1 {print}')
+          if [[ -n "$id" ]]; then
+            gh api --method PATCH "repos/$REPO/issues/comments/$id" --field body=@body.md --silent
+          else
+            gh api --method POST "$comments" --field body=@body.md --silent
+          fi
