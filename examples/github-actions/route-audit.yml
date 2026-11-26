@@ -1,0 +1,20 @@
+# Copy to .github/workflows/ in a site with a committed npm lockfile,
+# route-audit.json, and route-audit installed as a dev dependency.
+name: Check published URLs
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  routes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run build
+      - name: Check published URLs
+        run: npx --no-install route-audit --dist dist --report-only

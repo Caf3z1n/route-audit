@@ -2,21 +2,57 @@
 
 Check that your published URLs still work before you deploy.
 
-Run the CLI against a static build directory or an HTTP preview. For Astro and Starlight, use the build integration. The CLI reads a historical sitemap, explicit route expectations, or both. Requires Node.js 22.12 or later.
+The Venus Protocol docs built successfully while six URLs embedded in governance proposals returned 404. In local HTTP previews of the real builds, Route Audit caught all six before the fix and followed all six permanent redirects to the right pages afterward. [See the before-and-after results.](cases/venus-429/README.md)
 
-[Venus Protocol before-and-after case study](cases/venus-429/README.md)
+## Try it on your Astro or Starlight site
 
-## Try it locally
-
-From the source checkout:
+Install in the site project with Node.js 22.12 or later:
 
 ```sh
-npm ci
-npm test
-node bin/cli.js --config examples/bioconductor.json --preview https://bioconductor.org --json audit.json
+npm install -D route-audit
 ```
 
-For another project, install the local tarball with `npm install -D ./route-audit-0.3.0.tgz` and run `npx route-audit`. The package is private during evaluation.
+You can also install the same package from a [GitHub release](https://github.com/Caf3z1n/route-audit/releases). For v0.3.1:
+
+```sh
+npm install -D https://github.com/Caf3z1n/route-audit/releases/download/v0.3.1/route-audit-0.3.1.tgz
+```
+
+Save the sitemap from your **last published version** in `reference/` and commit it. For Astro sites with a sitemap index, copy `sitemap-index.xml` and its child files (such as `sitemap-0.xml`) from the published build, keeping their relative paths. This snapshot is the list of URLs future builds must preserve.
+
+Create `route-audit.json` in the project root, replacing the origin with the one in your sitemap. For a single sitemap, use its filename instead of the index.
+
+```json
+{
+  "site": "https://docs.example.org",
+  "sitemaps": ["./reference/sitemap-index.xml"]
+}
+```
+
+Build the proposed change and compare it with the snapshot:
+
+```sh
+npm run build
+npx route-audit --dist dist --report-only
+```
+
+If a page disappears, the report names its old path. For example, removing one page from a copy of the OpenDialog build produced this result:
+
+```text
+static: 203/204 OK, 1 failed, 0 inconclusive.
+fail  /getting-started-1/getting-ready  expected=reachable  observed=404  missing
+```
+
+### Run on pull requests
+
+Add this step after the static build in your existing GitHub Actions job. A [complete workflow for npm-based sites](examples/github-actions/route-audit.yml) is also available. For a site hosted under a prefix, add its Astro base, for example `--base /docs`.
+
+```yaml
+- name: Check published URLs
+  run: npx --no-install route-audit --dist dist --report-only
+```
+
+With `--report-only`, missing pages appear in the job log without failing the job. Configuration errors and inconclusive results still exit with code 2. Remove the flag when route failures should block the build.
 
 ## Define the URL contract
 
