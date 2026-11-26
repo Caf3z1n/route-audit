@@ -71,18 +71,14 @@ export async function staticTarget(dir, base = '/') {
     return { status: 404 };
   };
 }
-export function httpTarget(site, preview) {
-  return async (url) => {
-    const target =
-      url.origin === site ? new URL(preview + url.pathname + url.search) : url;
-    const response = await fetch(target, {
-      method: 'GET',
-      redirect: 'manual',
-      signal: AbortSignal.timeout(12000),
-      headers: { 'user-agent': 'route-audit (public route check)' },
-    });
-    const location = response.headers.get('location');
-    await response.body?.cancel();
-    return { status: response.status, location };
-  };
+export async function httpTarget(url) {
+  const response = await fetch(url, {
+    method: 'GET',
+    redirect: 'manual',
+    signal: AbortSignal.timeout(12000),
+    headers: { 'user-agent': 'route-audit (public route check)' },
+  });
+  const location = response.headers.get('location');
+  await response.body?.cancel();
+  return { status: response.status, location };
 }

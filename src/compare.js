@@ -7,8 +7,14 @@ function change(before, after) {
   return after === 'fail' ? 'existing' : 'fixed';
 }
 
-function observation({ outcome, reason, trace, detail }) {
-  return { outcome, reason, trace, ...(detail && { detail }) };
+function observation({ outcome, reason, trace, detail, expectedAtTarget }) {
+  return {
+    outcome,
+    reason,
+    trace,
+    ...(detail && { detail }),
+    ...(expectedAtTarget && { expectedAtTarget }),
+  };
 }
 
 export async function compare({ config, baseline, preview }) {
@@ -83,7 +89,7 @@ export function formatComparison({ summary, results }) {
         row.preview.reason,
         ...(row.preview.reason === 'wrong-final-destination'
           ? [
-              'expectedFinal=' + row.expectedFinalLocation,
+              'expectedFinal=' + row.preview.expectedAtTarget,
               'actualFinal=' + row.preview.trace.at(-1).url,
             ]
           : []),

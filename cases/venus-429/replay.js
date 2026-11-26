@@ -86,7 +86,7 @@ try {
           if (!control && !before)
             assert.equal(
               row.trace[1].url,
-              new URL(route.location, expected.site).href,
+              new URL(route.location, preview).href,
             );
         }
         report.replay = {

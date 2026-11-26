@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { loadConfig, origin } from './input.js';
 import { httpTarget, staticTarget } from './targets.js';
-import { compareDestinations } from './destinations.js';
+import { compareDestinations, expectedAtOrigin } from './destinations.js';
 
 const redirects = new Set(['meta', 301, 302, 303, 307, 308]);
 const maxRedirects = 10;
@@ -13,7 +13,8 @@ function unavailable(status) {
 async function check(rule, { site, preview, read }) {
   const trace = [];
   const visited = new Set();
-  const requestedUrl = new URL(rule.path, site);
+  const contractUrl = new URL(rule.path, site);
+  const requestedUrl = new URL(rule.path, preview ?? site);
   let current = requestedUrl;
 
   function result(outcome, reason, extra) {
@@ -50,11 +51,14 @@ async function check(rule, { site, preview, read }) {
         if (rule.finalLocation) {
           const final = compareDestinations({
             requestedUrl,
+            baselineUrl: contractUrl,
             expected: rule.finalLocation,
             observed: current,
           });
           if (final.outcome !== 'pass')
-            return result(final.outcome, final.reason);
+            return result(final.outcome, final.reason, {
+              expectedAtTarget: final.expected,
+            });
         }
         return result('pass', hop ? 'redirect-resolves' : 'present');
       }
@@ -64,14 +68,15 @@ async function check(rule, { site, preview, read }) {
 
       const destination = new URL(location, current);
       if (
-        preview &&
-        destination.origin === preview &&
-        current.origin === site
+        hop === 0 &&
+        rule.location &&
+        destination.href !==
+          expectedAtOrigin(
+            new URL(rule.location, contractUrl),
+            site,
+            requestedUrl.origin,
+          )
       ) {
-        destination.href =
-          site + destination.pathname + destination.search + destination.hash;
-      }
-      if (hop === 0 && rule.location && destination.href !== rule.location) {
         return result('fail', 'wrong-destination');
       }
       if (
@@ -82,12 +87,13 @@ async function check(rule, { site, preview, read }) {
         return result('fail', 'invalid-destination');
       }
       if (
+        destination.origin !== requestedUrl.origin &&
         destination.origin !== site &&
         (!preview ||
           ![rule.location, rule.finalLocation].some(
             (allowed) =>
               allowed &&
-              destination.origin === new URL(allowed, requestedUrl).origin,
+              destination.origin === new URL(allowed, contractUrl).origin,
           ))
       ) {
         return result('unknown', 'external-target-not-checked');
@@ -117,9 +123,7 @@ export async function auditContract(
   { dist, preview, base = '/' },
 ) {
   if (preview) preview = origin(preview);
-  const read = preview
-    ? httpTarget(site, preview)
-    : await staticTarget(dist, base);
+  const read = preview ? httpTarget : await staticTarget(dist, base);
   const context = { site, preview, read };
   const results = [];
   // Keep request order deterministic and avoid bursts against public previews.
@@ -162,7 +166,7 @@ export function format({ mode, summary, results }) {
         row.reason,
         row.reason === 'wrong-final-destination' &&
           'expectedFinal=' +
-            row.expectedFinalLocation +
+            row.expectedAtTarget +
             '  actualFinal=' +
             row.trace.at(-1).url,
         row.detail,

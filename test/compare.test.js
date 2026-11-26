@@ -204,7 +204,7 @@ test('CLI distinguishes first-hop, final and historical failures across preview 
   assert.equal(byPath.get('/legacy').preview.reason, 'wrong-final-destination');
   assert.equal(
     byPath.get('/legacy').preview.trace.at(-1).url,
-    'https://docs.test/',
+    previewUrl + '/',
   );
   assert.equal(byPath.get('/untouched').classification, 'passing');
   assert.equal(byPath.get('/direct').classification, 'passing');
@@ -217,6 +217,54 @@ test('CLI distinguishes first-hop, final and historical failures across preview 
   const md = await readFile(path.join(root, 'report.md'), 'utf8');
   assert.match(md, /Expected final: <code>\/guide<\/code>/);
   assert.doesNotMatch(md, /rev=1/);
+});
+test('an absolute redirect out of the preview follows production, including its subsequent relative hops', async (t) => {
+  const root = await mkdtemp(path.join(tmpdir(), 'route-wire-origin-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const production = await target(t, {
+    '/guide': [301, '/'],
+    '/': [200],
+    '/stay': [200],
+  });
+  const preview = await target(t, {
+    '/old': [308, production + '/guide'],
+    '/other': [308, production + '/stay'],
+    '/guide': [200],
+    '/stay': [200],
+  });
+  await writeFile(
+    path.join(root, 'route-audit.json'),
+    JSON.stringify({
+      site: production,
+      routes: [
+        { path: '/old', finalLocation: '/guide' },
+        { path: '/other', finalLocation: '/stay' },
+      ],
+    }),
+  );
+  const run = await command(
+    root,
+    '--preview',
+    preview,
+    '--json',
+    'result.json',
+  );
+  assert.equal(run.code, 1);
+  const { results } = JSON.parse(
+    await readFile(path.join(root, 'result.json'), 'utf8'),
+  );
+  assert.deepEqual(
+    results[0].trace.map((hop) => [hop.status, hop.url]),
+    [
+      [308, preview + '/old'],
+      [301, production + '/guide'],
+      [200, production + '/'],
+    ],
+  );
+  for (const result of results)
+    assert.equal(result.reason, 'wrong-final-destination');
+  assert.equal(results[1].expectedAtTarget, preview + '/stay');
+  assert.equal(results[1].trace.at(-1).url, production + '/stay');
 });
 test('HTTP follows an explicitly expected external final origin and preserves the boundary at further hops', async (t) => {
   const root = await mkdtemp(path.join(tmpdir(), 'route-external-'));

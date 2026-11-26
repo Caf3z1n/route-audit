@@ -49,7 +49,7 @@ The CLI loads the contract once and compares identical rules on both targets. To
 | Pass | Pass | Passing | Report only |
 | Either side inconclusive | — | Inconclusive | Exit 2 |
 
-Inconclusive results take precedence. With `--report-only`, regressions also exit 0. If neither side can establish a route's HTTP status, inspect the JSON traces. For ordinary routes, a redirect that ends at HTTP 200 passes. To enforce a particular destination, set an explicit `status` and `location`.
+Inconclusive results take precedence. With `--report-only`, regressions also exit 0. If neither side can establish a route's HTTP status, inspect the JSON traces. For ordinary routes, a redirect that ends at HTTP 200 passes. Set `status` and `location` to check the first redirect, or `finalLocation` to require a particular final resource. Same-site expectations are relative to the environment being checked. Each HTTP trace URL is the address actually requested: an absolute redirect to the configured production site leaves the preview, and subsequent hops follow that origin.
 
 The Markdown summary ranks new regressions by reference count, includes both HTTP chains and one source example per route, and groups existing failures separately. The JSON report includes every route and occurrence. The public Markdown summary omits URL queries and fragments from HTTP traces.
 

@@ -74,9 +74,9 @@ export function comparisonMarkdown(report) {
         ' — ' +
         refs +
         (ref ? ' · ' + source(ref) : ''),
-      '  - Published: ' + chain(row.baseline, report.site),
+      '  - Published: ' + chain(row.baseline, report.baseline ?? report.site),
       '  - Preview: ' +
-        chain(row.preview, report.site) +
+        chain(row.preview, report.preview ?? report.site) +
         ' (' +
         html(row.preview.reason) +
         ')',

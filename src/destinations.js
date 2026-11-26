@@ -15,6 +15,11 @@ export function destinationUrl(value, base) {
   return url;
 }
 
+// Translate contract expectations only. Observed redirects keep their wire origin.
+export function expectedAtOrigin(url, site, target) {
+  return url.origin === site ? target + url.href.slice(site.length) : url.href;
+}
+
 // Supply null when the checker could not observe a successful final response.
 export function compareDestinations({
   requestedUrl,
@@ -26,10 +31,7 @@ export function compareDestinations({
   const baseline =
     baselineUrl === requestedUrl ? base : destinationUrl(baselineUrl);
   const original = destinationUrl(expected, baseline);
-  const target =
-    original.origin === baseline.origin
-      ? base.origin + original.href.slice(original.origin.length)
-      : original.href;
+  const target = expectedAtOrigin(original, baseline.origin, base.origin);
   if (observed == null)
     return {
       outcome: 'unknown',
