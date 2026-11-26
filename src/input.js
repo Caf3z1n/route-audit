@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sitemapPaths } from './sitemap.js';
+import { discoverSources } from './discovery.js';
 
 export function origin(value) {
   const url = new URL(value);
@@ -25,7 +26,44 @@ function routePath(value, site) {
     throw new Error('Invalid route: ' + value);
   }
   const url = new URL(value, site);
+  if (url.origin !== site || url.pathname.startsWith('//'))
+    throw new Error('Ambiguous route: ' + value);
   return url.pathname + url.search;
+}
+function contractReferences(inventory, supplied = []) {
+  if (!Array.isArray(supplied))
+    throw new Error('Route references must be an array.');
+  if (!supplied.length) return inventory;
+  const references = new Map();
+  for (const ref of [...(inventory ?? []), ...supplied]) {
+    if (
+      !ref ||
+      typeof ref.file !== 'string' ||
+      !ref.file ||
+      !Number.isSafeInteger(ref.line) ||
+      ref.line < 1 ||
+      !Number.isSafeInteger(ref.column) ||
+      ref.column < 1 ||
+      (ref.source !== undefined && typeof ref.source !== 'string')
+    )
+      throw new Error('Invalid source file, line or column.');
+    if (ref.url !== undefined) {
+      if (typeof ref.url !== 'string')
+        throw new Error('Invalid source permalink.');
+      const link = new URL(ref.url);
+      if (link.protocol !== 'https:' || link.username || link.password)
+        throw new Error('Invalid source permalink.');
+    }
+    const { source, file, line, column, url } = ref;
+    references.set(JSON.stringify([source, file, line, column, url]), {
+      source,
+      file,
+      line,
+      column,
+      url,
+    });
+  }
+  return [...references.values()];
 }
 export async function loadConfig(filename) {
   const dir = path.dirname(path.resolve(filename));
@@ -36,6 +74,11 @@ export async function loadConfig(filename) {
   for (const value of await sitemapPaths(cfg.sitemaps ?? [], dir, site)) {
     const key = routePath(value, site);
     routes.set(key, { path: key });
+  }
+  const discovered = await discoverSources(cfg.sources ?? [], dir, site);
+  for (const pathname of [...discovered.keys()].sort()) {
+    const key = routePath(pathname, site);
+    routes.set(key, { path: key, references: discovered.get(pathname) });
   }
   for (const entry of cfg.routes ?? []) {
     const rule = typeof entry === 'string' ? { path: entry } : entry;
@@ -56,7 +99,16 @@ export async function loadConfig(filename) {
         throw new Error('Invalid redirect destination.');
       location = u.href;
     }
-    routes.set(key, { path: key, status: rule.status, location });
+    const references = contractReferences(
+      routes.get(key)?.references,
+      rule.references,
+    );
+    routes.set(key, {
+      path: key,
+      status: rule.status,
+      location,
+      ...(references?.length && { references }),
+    });
   }
   if (!routes.size) throw new Error('No routes configured.');
   return { site, routes: [...routes.values()] };

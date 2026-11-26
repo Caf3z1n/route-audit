@@ -19,6 +19,7 @@ async function check(rule, { site, preview, read }) {
       path: rule.path,
       expected: rule.status ?? 'reachable',
       ...(rule.location && { expectedLocation: rule.location }),
+      ...(rule.references?.length && { references: rule.references }),
       outcome,
       reason,
       trace,
@@ -85,13 +86,20 @@ async function check(rule, { site, preview, read }) {
   }
 }
 
-export async function audit({ config, dist, preview, base = '/' }) {
+export async function audit(options) {
+  const { dist, preview, base = '/' } = options;
   if (Boolean(dist) === Boolean(preview))
     throw new Error('Choose exactly one audit target (--dist or --preview).');
   if (!base.startsWith('/') || base.startsWith('//') || /[?#\\]/.test(base))
     throw new Error('Invalid static base path.');
 
-  const { site, routes } = await loadConfig(config);
+  return auditContract(await loadConfig(options.config), options);
+}
+
+export async function auditContract(
+  { site, routes },
+  { dist, preview, base = '/' },
+) {
   if (preview) preview = origin(preview);
   const read = preview
     ? httpTarget(site, preview)
