@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { loadConfig, origin } from './input.js';
+import { loadConfig, origin, staticBase } from './input.js';
 import { httpTarget, staticTarget } from './targets.js';
 import { compareDestinations, expectedAtOrigin } from './destinations.js';
 
@@ -109,13 +109,13 @@ async function check(rule, { site, preview, read }) {
 }
 
 export async function audit(options) {
-  const { dist, preview, base = '/' } = options;
+  const { dist, preview } = options;
   if (Boolean(dist) === Boolean(preview))
     throw new Error('Choose exactly one audit target (--dist or --preview).');
-  if (!base.startsWith('/') || base.startsWith('//') || /[?#\\]/.test(base))
-    throw new Error('Invalid static base path.');
+  const contract = await loadConfig(options.config);
+  const base = staticBase(options.base ?? contract.base ?? '/');
 
-  return auditContract(await loadConfig(options.config), options);
+  return auditContract(contract, { ...options, base });
 }
 
 export async function auditContract(

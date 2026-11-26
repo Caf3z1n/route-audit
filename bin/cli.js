@@ -11,6 +11,7 @@ import {
 import { comparisonMarkdown } from '../src/pr-report.js';
 
 const help = [
+  'route-audit init [--site https://docs.example.org] [--sitemap URL] [--dist dist] [--base /docs]',
   'route-audit [--config routes.json] (--dist dist [--base /docs] | --preview https://preview.example) [--json report.json] [--report-only]',
   'route-audit --discover [--config routes.json] [--json inventory.json]',
   'route-audit --baseline https://docs.example --preview https://preview.example [--config routes.json] [--markdown report.md] [--json comparison.json] [--report-only]',
@@ -19,23 +20,36 @@ const help = [
 const json = (data) => JSON.stringify(data, null, 2) + '\n';
 
 try {
+  const init = process.argv[2] === 'init';
   const { values: v } = parseArgs({
-    options: {
-      config: { type: 'string', default: 'route-audit.json' },
-      dist: { type: 'string' },
-      preview: { type: 'string' },
-      base: { type: 'string' },
-      json: { type: 'string' },
-      'report-only': { type: 'boolean' },
-      demo: { type: 'boolean' },
-      help: { type: 'boolean', short: 'h' },
-      discover: { type: 'boolean' },
-      baseline: { type: 'string' },
-      markdown: { type: 'string' },
-    },
+    args: process.argv.slice(init ? 3 : 2),
+    options: init
+      ? {
+          site: { type: 'string' },
+          sitemap: { type: 'string' },
+          dist: { type: 'string' },
+          base: { type: 'string' },
+          help: { type: 'boolean', short: 'h' },
+        }
+      : {
+          config: { type: 'string', default: 'route-audit.json' },
+          dist: { type: 'string' },
+          preview: { type: 'string' },
+          base: { type: 'string' },
+          json: { type: 'string' },
+          'report-only': { type: 'boolean' },
+          demo: { type: 'boolean' },
+          help: { type: 'boolean', short: 'h' },
+          discover: { type: 'boolean' },
+          baseline: { type: 'string' },
+          markdown: { type: 'string' },
+        },
   });
   if (v.help) console.log(help);
-  else if (v.demo) {
+  else if (init) {
+    const { initialize } = await import('../src/init.js');
+    process.exitCode = await initialize(v);
+  } else if (v.demo) {
     if (process.argv.length !== 3) throw new Error('Run --demo on its own.');
     const { runDemo } = await import('./demo.js');
     process.exitCode = await runDemo();

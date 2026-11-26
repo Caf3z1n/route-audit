@@ -2,7 +2,7 @@ import path from 'node:path';
 import { readFile } from 'node:fs/promises';
 import { SaxesParser } from 'saxes';
 
-function parseLocations(xml) {
+export function parseLocations(xml) {
   const parser = new SaxesParser({ xmlns: true });
   const elements = [];
   const locations = [];

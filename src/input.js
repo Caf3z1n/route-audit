@@ -16,7 +16,7 @@ export function origin(value) {
   }
   return url.origin;
 }
-function routePath(value, site) {
+export function routePath(value, site) {
   if (
     typeof value !== 'string' ||
     !value.startsWith('/') ||
@@ -30,6 +30,17 @@ function routePath(value, site) {
   if (url.origin !== site || url.pathname.startsWith('//'))
     throw new Error('Ambiguous route: ' + value);
   return url.pathname + url.search;
+}
+
+export function staticBase(value) {
+  if (
+    typeof value !== 'string' ||
+    !value.startsWith('/') ||
+    value.startsWith('//') ||
+    /[?#\\]/.test(value)
+  )
+    throw new Error('Invalid static base path.');
+  return value;
 }
 function contractReferences(inventory, supplied = []) {
   if (!Array.isArray(supplied))
@@ -122,5 +133,9 @@ export async function loadConfig(filename) {
     });
   }
   if (!routes.size) throw new Error('No routes configured.');
-  return { site, routes: [...routes.values()] };
+  return {
+    site,
+    ...(cfg.base !== undefined && { base: cfg.base }),
+    routes: [...routes.values()],
+  };
 }
